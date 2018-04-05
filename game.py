@@ -5,7 +5,7 @@ import os
 b = Board()
 b.shuffle()
 
-os.system('cls')
+os.system('cls') 
 b.printBoard()
 
 while True:
