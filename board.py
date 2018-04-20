@@ -1,4 +1,6 @@
 import random
+import json
+import requests
 
 class Board(object):
     def __init__(self):
@@ -20,7 +22,7 @@ class Board(object):
                     [u'\u00D6', u'\u004C', u'\u0042', u'\u0049', u'\u0044', u'\u0041']]
         self.size = 4
         self.letters = list()
-
+    
     def shuffle(self):
         checkList = []
         for i in range(self.size):
@@ -68,6 +70,22 @@ class Board(object):
                     else:
                         path.pop()
             return False
+
+    def isValid(self, word):
+        if len(word) >= 3:
+            if self.wordExists(word):                    
+                try:
+                    base = 'http://cevir.ws/v1?m=25&p=exact&l=tr'
+                    word = '&q=' + word
+                    url = base + word
+
+                    response = requests.get(url, verify=False)
+                    j = response.json()
+                    if j["control"]["results"] > 0:
+                        return True
+                except:
+                    pass
+        return False
 
     def getNeighborCells(self, lastTuple, path):
         i = lastTuple[0]

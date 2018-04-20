@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title>Welcome to thenewboston</title>
+<link href="{{ url_for('static', filename='css/snippet.css') }}" type="text/css" rel="stylesheet">
+<body ng-app="BoggleApp">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script src="../static/js/main.js"></script>
+    <div class="container" ng-controller="BoggleController">
+      <h1>Boggle</h1>
+      <input ng-model="nam.a">
+      <p>Hello {a nam.a a}</p>
+  </body>

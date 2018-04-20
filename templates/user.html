@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<link href="{{ url_for('static', filename='css/snippet.css') }}" type="text/css" rel="stylesheet">
+{% if user %}
+    <h1>Hello {{ user }}</h1>
+{% else %}
+    <h1>Please log in</h1>
+{% endif %}

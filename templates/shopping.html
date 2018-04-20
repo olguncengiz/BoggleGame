@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<link href="{{ url_for('static', filename='css/snippet.css') }}" type="text/css" rel="stylesheet">
+
+<ul>
+    {% for item in food %}
+    <li>{{ item }}</li>
+    {% endfor %}
+</ul>
