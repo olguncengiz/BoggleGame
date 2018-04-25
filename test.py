@@ -16,6 +16,12 @@ class TestBoard(unittest.TestCase):
         print("Printing Board...")
         self.board.printBoard()
 
+        print("Shuffling Board Again...")
+        self.board.shuffle()
+
+        print("Printing Board...")
+        self.board.printBoard()
+
         word = self.board.letters[2][2]
         print("Word is %s" % word)
 

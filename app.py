@@ -1,22 +1,22 @@
 import os
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify
+from board import Board
 
 app = Flask(__name__)
+app.board = Board()
 
-@app.route("/")
-@app.route("/<user>")
-def index(user=None):
-    return render_template("user.html", user=user)
+@app.route("/", methods=["GET", "POST"])
+def index():
+    return render_template("index.html", letters=app.board)
 
-@app.route("/shopping")
-def shopping():
-    food = ["Cheese", "Tuna", "Beef", "Toothpaste"]
-    return render_template("shopping.html", food=food)
+@app.route("/shuffle", methods=["GET"])
+def shuffle():
+    app.board.shuffle()
+    return jsonify(app.board.getLetters())
 
-
-@app.route("/profile", methods=['GET'])
-def profile():
-    return render_template("profile.html")
+@app.route("/checkWord/<word>", methods=["GET"])
+def checkWord(word):
+    return jsonify(app.board.isValid(word))
 
 @app.route('/favicon.ico') 
 def favicon(): 

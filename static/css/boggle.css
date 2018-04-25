@@ -1,0 +1,30 @@
+h1 {
+	color: deepskyblue;
+}
+
+input {
+	max-width: 300px;
+}
+
+table {
+	width: 360px;
+	height: 360px
+}
+td {
+	width: 90px;
+	height: 90px
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+	background: gold;
+	font-size: 50px;
+	font-family: Courier New;
+}
+
+.content {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: gold;
+}

@@ -24,6 +24,8 @@ class Board(object):
         self.letters = list()
     
     def shuffle(self):
+        self.letters = list();
+        
         checkList = []
         for i in range(self.size):
             self.letters.append(list())
@@ -36,7 +38,8 @@ class Board(object):
                         checkList.append(row)
                         found = True
 
-        return {"letters": self.letters}
+    def getLetters(self):
+        return self.letters
 
     def wordExists(self, word, path=None):
         if len(word) == 0 and len(path) == 0:
